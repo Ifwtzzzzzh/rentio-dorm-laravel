@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Bonus extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'boarding_house_id',
+        'image',
+        'name',
+        'description'
+    ];
+
+    public function boardingHouse() {
+        return $this->belongsTo(BoardingHouse::class);
+    }
 }
