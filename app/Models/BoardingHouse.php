@@ -30,6 +30,10 @@ class BoardingHouse extends Model
         return $this->hasMany(Room::class);
     }
 
+    public function bonuses() {
+        return $this->hasMany(Bonus::class);
+    }
+
     public function testimonials() {
         return $this->hasMany(Testimonial::class);
     }
