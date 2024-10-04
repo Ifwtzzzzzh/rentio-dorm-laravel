@@ -11,6 +11,7 @@ class BoardingHouse extends Model
     protected $fillable = [
         'image',
         'name',
+        'slug',
         'thumbnail',
         'city_id',
         'category_id',
