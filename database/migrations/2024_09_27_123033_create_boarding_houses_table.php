@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('price');
             $table->text('address');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
