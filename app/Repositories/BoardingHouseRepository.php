@@ -2,7 +2,7 @@
 namespace App\Repositories;
 use App\Interfaces\BoardingHouseRepositoryInterface;
 use App\Models\BoardingHouse;
-use Filament\Forms\Components\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class BoardingHouseRepository implements BoardingHouseRepositoryInterface {
     public function getAllBoardingHouses($search = null, $city = null, $category = null) {
