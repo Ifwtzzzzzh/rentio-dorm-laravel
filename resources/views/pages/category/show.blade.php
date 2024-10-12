@@ -18,7 +18,7 @@
             <p class="text-ngekos-grey">Tersedia {{ $category->boardingHouse->count() }}</p>
         </div>
         <button class="flex flex-col items-center text-center shrink-0 rounded-[22px] p-[10px_20px] gap-2 bg-white">
-            <img src="assets/images/icons/star.svg" class="w-6 h-6" alt="icon">
+            <img src="{{ asset('assets/images/icons/star.svg') }}" class="w-6 h-6" alt="icon">
             <p class="font-bold text-sm">4/5</p>
         </button>
     </div>
