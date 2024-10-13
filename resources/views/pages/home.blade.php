@@ -118,7 +118,7 @@
     </section>
     <section id="Best" class="flex flex-col gap-4 px-5 mt-[30px]">
         <div class="flex items-center justify-between">
-            <h2 class="font-bold">All Great Koskos</h2>
+            <h2 class="font-bold">All Great Kos</h2>
             <a href="#">
                 <div class="flex items-center gap-2">
                     <span>See all</span>
