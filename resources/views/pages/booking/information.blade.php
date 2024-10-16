@@ -5,9 +5,9 @@
             class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180deg,#F2F9E6_0%,#D2EDE4_100%)]">
         </div>
         <div id="TopNav" class="relative flex items-center justify-between px-5 mt-[60px]">
-            <a href="room-available.html"
+            <a href="{{ route('kos.rooms', $boardingHouse->slug) }}"
                 class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white">
-                <img src="assets/images/icons/arrow-left.svg" class="w-[28px] h-[28px]" alt="icon">
+                <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="w-[28px] h-[28px]" alt="icon">
             </a>
             <p class="font-semibold">Customer Information</p>
             <div class="dummy-btn w-12"></div>
@@ -16,40 +16,41 @@
             <div class="flex flex-col w-full rounded-[30px] border border-[#F1F2F6] p-4 gap-4 bg-white">
                 <div class="flex gap-4">
                     <div class="flex w-[120px] h-[132px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-                        <img src="assets/images/thumbnails/details-1.png" class="w-full h-full object-cover" alt="icon">
+                        <img src="{{ asset('storage/' . $boardingHouse->thumbnail) }}" class="w-full h-full object-cover" alt="icon">
                     </div>
                     <div class="flex flex-col gap-3 w-full">
-                        <p class="font-semibold text-lg leading-[27px] line-clamp-2 min-h-[54px]">Tumbuh Tentram Berada
-                            Rumah Nenek</p>
+                        <p class="font-semibold text-lg leading-[27px] line-clamp-2 min-h-[54px]">
+                            {{ $boardingHouse->name }}
+                        </p>
                         <hr class="border-[#F1F2F6]">
                         <div class="flex items-center gap-[6px]">
-                            <img src="assets/images/icons/location.svg" class="w-5 h-5 flex shrink-0" alt="icon">
-                            <p class="text-sm text-ngekos-grey">Singapore City</p>
+                            <img src="{{ asset('assets/images/icons/location.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <p class="text-sm text-ngekos-grey">Kota {{ $boardingHouse->city->name }}</p>
                         </div>
                         <div class="flex items-center gap-[6px]">
-                            <img src="assets/images/icons/profile-2user.svg" class="w-5 h-5 flex shrink-0" alt="icon">
-                            <p class="text-sm text-ngekos-grey">In Housee</p>
+                            <img src="{{ asset('assets/images/icons/profile-2user.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <p class="text-sm text-ngekos-grey">In {{ $boardingHouse->category->name }}</p>
                         </div>
                     </div>
                 </div>
                 <hr class="border-[#F1F2F6]">
                 <div class="flex gap-4">
                     <div class="flex w-[120px] h-[156px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-                        <img src="assets/images/thumbnails/room-1.png" class="w-full h-full object-cover" alt="icon">
+                        <img src="{{ asset('storage/' . $room->images->first()->image) }}" class="w-full h-full object-cover" alt="icon">
                     </div>
                     <div class="flex flex-col gap-3 w-full">
-                        <p class="font-semibold text-lg leading-[27px]">Executive Room</p>
+                        <p class="font-semibold text-lg leading-[27px]">{{ $room->name }}</p>
                         <hr class="border-[#F1F2F6]">
                         <div class="flex items-center gap-[6px]">
-                            <img src="assets/images/icons/profile-2user.svg" class="w-5 h-5 flex shrink-0" alt="icon">
-                            <p class="text-sm text-ngekos-grey">2 People</p>
+                            <img src="{{ asset('assets/images/icons/profile-2user.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <p class="text-sm text-ngekos-grey">{{ $room->capacity }} People</p>
                         </div>
                         <div class="flex items-center gap-[6px]">
-                            <img src="assets/images/icons/3dcube.svg" class="w-5 h-5 flex shrink-0" alt="icon">
-                            <p class="text-sm text-ngekos-grey">184 sqft flat</p>
+                            <img src="{{ asset('assets/images/icons/3dcube.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <p class="text-sm text-ngekos-grey">{{ $room->square_feet }} sqft flat</p>
                         </div>
                         <hr class="border-[#F1F2F6]">
-                        <p class="font-semibold text-lg text-ngekos-orange">Rp 793.444<span
+                        <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($room->price_per_month, 0, ',', '.') }}<span
                                 class="text-sm text-ngekos-grey font-normal">/bulan</span></p>
                     </div>
                 </div>
@@ -65,7 +66,7 @@
                     <p class="font-semibold">Complete Name</p>
                     <label
                         class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300">
-                        <img src="assets/images/icons/profile-2user.svg" class="w-5 h-5 flex shrink-0" alt="icon">
+                        <img src="{{ asset('assets/images/icons/profile-2user.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
                         <input type="text" name="" id=""
                             class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                             placeholder="Write your name">
@@ -75,7 +76,7 @@
                     <p class="font-semibold">Email Address</p>
                     <label
                         class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300">
-                        <img src="assets/images/icons/sms.svg" class="w-5 h-5 flex shrink-0" alt="icon">
+                        <img src="{{ asset('assets/images/icons/sms.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
                         <input type="email" name="" id=""
                             class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                             placeholder="Write your email">
@@ -85,7 +86,7 @@
                     <p class="font-semibold">Phone No</p>
                     <label
                         class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300">
-                        <img src="assets/images/icons/call.svg" class="w-5 h-5 flex shrink-0" alt="icon">
+                        <img src="{{ asset('assets/images/icons/call.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
                         <input type="tel" name="" id=""
                             class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                             placeholder="Write your phone">
@@ -95,13 +96,13 @@
                     <p class="font-semibold">Duration in Month</p>
                     <div class="relative flex items-center gap-[10px] w-fit">
                         <button type="button" id="Minus" class="w-12 h-12 flex-shrink-0">
-                            <img src="assets/images/icons/minus.svg" alt="icon">
+                            <img src="{{ asset('assets/images/icons/minus.svg') }}" alt="icon">
                         </button>
                         <input id="Duration" type="text" value="1" name="duration"
                             class="appearance-none outline-none !bg-transparent w-[42px] text-center font-semibold text-[22px] leading-[33px]"
                             inputmode="numeric" pattern="[0-9]*">
                         <button type="button" id="Plus" class="w-12 h-12 flex-shrink-0">
-                            <img src="assets/images/icons/plus.svg" alt="icon">
+                            <img src="{{ asset('assets/images/icons/plus.svg') }}" alt="icon">
                         </button>
                     </div>
                 </div>
@@ -129,4 +130,11 @@
                 </div>
             </div>
         </form>
+@endsection
+
+@section('scripts')
+<script>
+    const defaultPrice = {{ $room->price_per_month }};
+</script>
+        <script src="{{ asset('assets/js/cust-info.js') }}"></script>
 @endsection
