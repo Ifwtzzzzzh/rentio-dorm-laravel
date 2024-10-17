@@ -36,6 +36,7 @@
         </div>
     </div>
     <form action="{{ route('booking', $boardingHouse->slug) }}" class="relative flex flex-col gap-4 mt-5">
+        <input type="hidden" name="boarding_house_id" value="{{ $boardingHouse->id }}">
         <h2 class="font-bold px-5">Available Rooms</h2>
         <div id="RoomsContainer" class="flex flex-col gap-4 px-5">
             @foreach ($boardingHouse->rooms as $room)

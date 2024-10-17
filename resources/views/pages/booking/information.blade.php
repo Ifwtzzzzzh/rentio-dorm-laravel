@@ -103,7 +103,7 @@
                 <label
                     class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300  @error('phone') border-red-500 @enderror">
                     <img src="{{ asset('assets/images/icons/call.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
-                    <input type="tel" name="phone" id=""
+                    <input type="tel" name="phone_number" id=""
                         class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                         placeholder="Write your phone" value="{{ old('phone') }}">
                 </label>
