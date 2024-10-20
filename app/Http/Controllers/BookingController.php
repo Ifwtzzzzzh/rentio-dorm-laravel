@@ -35,7 +35,6 @@ class BookingController extends Controller
     public function saveInformation(CustomerInformationStoreRequest $request, $slug) {
         $data = $request->validated();
         $this->transactionRepository->saveTransactionDataToSession($data);
-        // dd($this->transactionRepository->getTransactionDataFromSession());
         return redirect()->route('booking.checkout', $slug);
     }
 

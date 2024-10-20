@@ -33,7 +33,7 @@ class TransactionRepository implements TransactionRepositoryInterface {
         $data['payment_status'] = 'pending';
         $data['transaction_date'] = now();
         $total = $this->calculateTotalAmount($room->price_per_month, $data['duration']);
-        $data['total_amount'] = $this->calculateTotalAmount($total, $data['payment_method']);
+        $data['total_amount'] = $this->calculatePaymentAmount($total, $data['payment_method']);
         return $data;
     }
 
@@ -44,8 +44,8 @@ class TransactionRepository implements TransactionRepositoryInterface {
     public function calculateTotalAmount($pricePerMonth, $duration) {
         $subtotal = $pricePerMonth * $duration;
         $tax = $subtotal * 0.11;
-        $insurant = $subtotal * 0.01;
-        return $subtotal + $tax + $insurant;
+        $insurance = $subtotal * 0.01;
+        return $subtotal + $tax + $insurance;
     }
 
     public function calculatePaymentAmount($total, $paymentMethod) {
