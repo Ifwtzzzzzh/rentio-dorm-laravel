@@ -28,6 +28,10 @@ class TransactionRepository implements TransactionRepositoryInterface {
         return $transaction;
     }
 
+    public function getTransactionByCode($code) {
+        return Transaction::where('code', $code)->first();
+    }
+
     public function prepareTransactionData($data, $room) {
         $data['code'] = $this->generateTransactionCode();
         $data['payment_status'] = 'pending';
