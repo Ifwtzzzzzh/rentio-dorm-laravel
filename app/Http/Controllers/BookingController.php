@@ -90,5 +90,6 @@ class BookingController extends Controller
         if(!$transaction) {
             return redirect()->back()->with('error', 'Data Transaksi Tidak Ditemukan');
         }
+        return view('pages.booking.detail', compact('transaction'));
     }
 }

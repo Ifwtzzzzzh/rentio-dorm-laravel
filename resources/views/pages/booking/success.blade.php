@@ -9,7 +9,8 @@
             <div class="flex flex-col w-full rounded-[30px] border border-[#F1F2F6] p-4 gap-4 bg-white">
                 <div class="flex gap-4">
                     <div class="flex w-[120px] h-[132px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-                        <img src="{{ asset('storage/' . $transaction->boardingHouse->thumbnail) }}" class="w-full h-full object-cover" alt="icon">
+                        <img src="{{ asset('storage/' . $transaction->boardingHouse->thumbnail) }}"
+                            class="w-full h-full object-cover" alt="icon">
                     </div>
                     <div class="flex flex-col gap-3 w-full">
                         <p class="font-semibold text-lg leading-[27px] line-clamp-2 min-h-[54px]">
@@ -29,21 +30,25 @@
                 <hr class="border-[#F1F2F6]">
                 <div class="flex gap-4">
                     <div class="flex w-[120px] h-[138px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-                        <img src="{{ asset('storage/' . $transaction->room->images->first()->image) }}" class="w-full h-full object-cover" alt="icon">
+                        <img src="{{ asset('storage/' . $transaction->room->images->first()->image) }}"
+                            class="w-full h-full object-cover" alt="icon">
                     </div>
                     <div class="flex flex-col gap-3 w-full">
                         <p class="font-semibold text-lg leading-[27px]">{{ $transaction->room->name }}</p>
                         <hr class="border-[#F1F2F6]">
                         <div class="flex items-center gap-[6px]">
-                            <img src="{{ asset('assets/images/icons/profile-2user.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <img src="{{ asset('assets/images/icons/profile-2user.svg') }}" class="w-5 h-5 flex shrink-0"
+                                alt="icon">
                             <p class="text-sm text-ngekos-grey">{{ $transaction->room->capacity }} People</p>
                         </div>
                         <div class="flex items-center gap-[6px]">
-                            <img src="{{ asset('assets/images/icons/3dcube.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <img src="{{ asset('assets/images/icons/3dcube.svg') }}" class="w-5 h-5 flex shrink-0"
+                                alt="icon">
                             <p class="text-sm text-ngekos-grey">{{ $transaction->room->square_feet }} sqft flat</p>
                         </div>
                         <div class="flex items-center gap-[6px]">
-                            <img src="{{ asset('assets/images/icons/calendar.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <img src="{{ asset('assets/images/icons/calendar.svg') }}" class="w-5 h-5 flex shrink-0"
+                                alt="icon">
                             <p class="text-sm text-ngekos-grey">
                                 {{ \Carbon\Carbon::parse($transaction->start_date)->isoFormat('D MMMM YYYY') }} -
                                 {{ \Carbon\Carbon::parse($transaction->start_date)->addMonths($transaction->duration)->isoFormat('D MMMM YYYY') }}
@@ -64,9 +69,15 @@
             <a href="{{ route('home') }}"
                 class="w-full rounded-full p-[14px_20px] text-center font-bold text-white bg-ngekos-orange">Explore Other
                 Kos</a>
-            <a href="booking-details.html"
-                class="w-full rounded-full p-[14px_20px] text-center font-bold text-white bg-ngekos-black">View My
-                Booking</a>
+            <form action="{{ route('check-booking.show') }}" method="post">
+                @csrf
+                <input type="hidden" name="code" value="{{ $transaction->code }}">
+                <input type="hidden" name="email" value="{{ $transaction->email }}">
+                <input type="hidden" name="phone_number" value="{{ $transaction->phone_number }}">
+                <button class="w-full rounded-full p-[14px_20px] text-center font-bold text-white bg-ngekos-black">
+                    View My Booking
+                </button>
+            </form>
         </div>
     </div>
 @endsection
