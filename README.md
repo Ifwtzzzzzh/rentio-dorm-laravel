@@ -1,4 +1,4 @@
-# Rentio - Rent Boarding House Web
+# 🏠 Rentio - Rent Boarding House Web
 
 Rentio is more than just a rental platform. It's your gateway to finding the ideal dorm room that suits your lifestyle and budget. Whether you're a student looking for a convenient commute, a young professional seeking a vibrant community, or someone simply in need of a temporary stay, Rentio has you covered.
 
