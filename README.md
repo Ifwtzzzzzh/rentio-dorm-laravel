@@ -24,7 +24,7 @@ Rentio is more than just a rental platform. It's your gateway to finding the ide
     - Transactions data
 - Send WhatApps notification (Twilio)
 
-FrontEnd (Customer)
+**FrontEnd (Customer)**
 
 - Dorm room filter by city and category
 - See available dorm room and its bonus
